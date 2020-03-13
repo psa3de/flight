@@ -3,3 +3,4 @@ Temp/
 Assembly-CSharp.csproj
 *.meta
 *.cache
+*.sln

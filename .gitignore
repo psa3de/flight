@@ -1,6 +1,9 @@
 Library/
+Logs/
+Packages/
 Temp/
+
 Assembly-CSharp.csproj
-*.meta
 *.cache
+*.meta
 *.sln

@@ -9,7 +9,6 @@ public class PhysicsObject : MonoBehaviour
     public float gravityModifier = 1f;
     public float airMoveMultiplier = 1f;
 
-    protected Vector2 targetVelocity;
     protected bool grounded;
     protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
@@ -32,11 +31,11 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        velocity = Vector2.zero;
     }
 
     void Update()
     {
-        targetVelocity = Vector2.zero;
         ComputeVelocity();
     }
 
@@ -48,7 +47,6 @@ public class PhysicsObject : MonoBehaviour
     void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
-        velocity.x = targetVelocity.x;
         Vector2 moveHorizontally;
         if (grounded)
         {
